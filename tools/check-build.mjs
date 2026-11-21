@@ -5,7 +5,7 @@
  *
  * Yang diperiksa:
  * - hasil build ada (.next/BUILD_ID, chunk statis)
- * - aset publik wajib ada (legacy/*, pay/*.svg)
+ * - aset publik wajib ada (pay/*.svg)
  * - tidak ada JWT ber-role service_role yang ikut ke bundle browser
  *
  * Exit code 1 kalau ada yang gagal, supaya `npm run deploy` berhenti.
@@ -59,8 +59,6 @@ else fail('.next/static tidak berisi chunk JS');
 
 /* ------------------------------------------------------------ aset publik */
 const required = [
-  'legacy/app.js',
-  'legacy/bridge-override.js',
   'pay/qris.svg',
   'pay/bca.svg',
   'pay/bri.svg',

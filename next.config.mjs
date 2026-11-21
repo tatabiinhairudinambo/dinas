@@ -1,12 +1,16 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Engine legacy memasang listener global & merender #app sekali;
-  // double-mount StrictMode membuat listener ganda, jadi dimatikan.
-  reactStrictMode: false,
   poweredByHeader: false,
   eslint: { ignoreDuringBuilds: true },
+  async rewrites() {
+    return {
+      beforeFiles: [
+        { source: '/src/lib/:path*', destination: '/_raw/src/lib/:path*' },
+        { source: '/src/components/:path*', destination: '/_raw/src/components/:path*' },
+      ],
+    };
+  },
   async redirects() {
-    // URL lama tetap jalan.
     return [{ source: '/cms', destination: '/admin', permanent: true }];
   },
 };

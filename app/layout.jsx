@@ -1,4 +1,4 @@
-import '../src/styles/index.css';
+import '../src/styles/app.css';
 
 export const metadata = {
   title: 'Web Kedinasan',

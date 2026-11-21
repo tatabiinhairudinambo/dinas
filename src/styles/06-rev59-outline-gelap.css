@@ -1,5 +1,0 @@
-/* Revisi 59: outline tombol gelap (dibangun dari array di script)
-   Sumber: archive/original.html — jangan ubah urutan antar file. */
-
-/* ---- inject @baris 2101 ---- */
-html[data-theme=dark] .exw .dn{background:transparent!important;border:1.5px solid #cde3fb!important;color:#cde3fb!important}html[data-theme=dark] .tg58{background:transparent!important;border:1px solid #cfdcff!important;color:#cfdcff!important}@media(prefers-color-scheme:dark){html:not([data-theme=light]) .exw .dn{background:transparent!important;border:1.5px solid #cde3fb!important;color:#cde3fb!important}html:not([data-theme=light]) .tg58{background:transparent!important;border:1px solid #cfdcff!important;color:#cfdcff!important}}

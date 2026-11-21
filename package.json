@@ -1,25 +1,18 @@
 {
   "name": "web-kedinasan",
   "private": true,
-  "version": "75.0.0",
-  "description": "Web Kedinasan — shell Next.js + React untuk aplikasi try out (engine legacy rev4-rev75)",
+  "version": "76.0.0",
+  "description": "Web Kedinasan — Next.js murni untuk try out SKD (TWK, TIU, TKP), siap deploy Vercel",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "check:legacy": "node tools/check-legacy.mjs",
-    "extract:legacy": "node tools/extract-legacy.mjs",
-    "check:supabase": "node tools/check-supabase.mjs",
     "check:dist": "node tools/check-build.mjs",
-    "smoke": "node tools/smoke-flow.mjs http://localhost:3000/",
-    "test:cms": "node tools/cms-test.mjs http://localhost:3000/admin tools/_shots",
-    "test:otp": "node tools/otp-flow.mjs http://localhost:3000/",
-    "test:supabase": "node tools/supabase-signup-test.mjs http://localhost:3000/ --live",
+    "e2e": "node tools/e2e.mjs http://localhost:3000/",
     "deploy": "npm run build && npm run check:dist && npx --yes vercel --prod",
     "deploy:preview": "npm run build && npm run check:dist && npx --yes vercel"
   },
   "dependencies": {
-    "@supabase/supabase-js": "^2.119.0",
     "next": "^15.5.6",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
