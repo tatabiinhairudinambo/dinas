@@ -88,18 +88,13 @@ export default function BeliPage() {
       <Sheet open={bayar} onClose={() => setBayar(false)}>
         <h3 style={{ marginTop: 0 }}>Pilih Pembayaran</h3>
         <div className="pay-method">
-          {['QRIS', 'BCA', 'BRI', 'MANDIRI'].map((b) => (
-            <button
-              key={b}
-              onClick={() =>
-                router.push(
-                  `/bayar/${pkg.id}?m=${b}${promo ? `&promo=${promo.code}` : ''}`,
-                )
-              }
-            >
-              {b}
-            </button>
-          ))}
+          <button
+            onClick={() =>
+              router.push(`/bayar/${pkg.id}?m=QRIS${promo ? `&promo=${promo.code}` : ''}`)
+            }
+          >
+            QRIS
+          </button>
         </div>
       </Sheet>
     </>

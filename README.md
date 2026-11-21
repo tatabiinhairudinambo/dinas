@@ -15,12 +15,12 @@ komponen React dengan CSS terpusat di `src/styles/app.css`.
 - **Ujian**: timer per sesi, navigasi Daftar Nomor, penilaian di browser,
   hasil tersimpan (`res`) + riwayat (`hist`). Ujian < 60 detik tidak bisa
   diakhiri (modal "Masih terlalu awal").
-- **Pembelian**: halaman `/beli/[id]` → `/bayar/[id]`. QRIS memakai gateway
-  **KiPay** (`src/lib/kipay.js`): transaksi dibuat via API, QR diambil dari
-  `qr_url`, status di-polling tiap 3 detik; transaksi sandbox (trx_id `SBX-`)
-  mendapat tombol **Simulasikan Bayar**. Tanpa `NEXT_PUBLIC_KIPAY_API_KEY`,
-  halaman jatuh ke mode simulasi manual seperti sebelumnya. Paket terbeli
-  muncul di `/paket`.
+- **Pembelian**: halaman `/beli/[id]` → `/bayar/[id]`. Pembayaran hanya
+  **QRIS via gateway KiPay** (`src/lib/kipay.js`): transaksi dibuat via API,
+  QR diambil dari `qr_url`, status di-polling tiap 3 detik; transaksi sandbox
+  (trx_id `SBX-`) mendapat tombol **Simulasikan Bayar**. Tanpa
+  `NEXT_PUBLIC_KIPAY_API_KEY`, halaman jatuh ke mode simulasi manual seperti
+  sebelumnya. Paket terbeli muncul di `/paket`.
 - **Panel operator `/admin`**: ringkasan, kelola paket + bank soal (editor
   soal, bulk paste `///`/`|||`, publish dengan validasi), pemasaran
   (banner/logo/promo/metode bayar), dan akun. Akun demo bawaan:

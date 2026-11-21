@@ -1,25 +1,18 @@
 'use client';
 
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import { useStore, update } from '@/src/lib/store.js';
 import { fmtRp } from '@/src/lib/model.js';
 import { Back } from '@/src/components/AppShell.jsx';
 import { kipayActive, kipayCreate, kipayStatus, kipaySimulate, kipayIsSandbox } from '@/src/lib/kipay.js';
 
-const BANKS = {
-  QRIS: 'QRIS',
-  BCA: 'Bank BCA',
-  BRI: 'Bank BRI',
-  MANDIRI: 'Bank Mandiri',
-};
-
 export default function BayarPage() {
   const { id } = useParams();
   const router = useRouter();
   const { data: S } = useStore();
   const pkg = S.packages.find((p) => String(p.id) === String(id));
-  const [params, setParams] = useState({ bank: 'QRIS', promo: '' });
+  const [promoCode, setPromoCode] = useState('');
   const [copied, setCopied] = useState(false);
   const [toast, setToast] = useState('');
   const [err, setErr] = useState('');
@@ -30,13 +23,11 @@ export default function BayarPage() {
   const pollRef = useRef(null);
   const doneRef = useRef(false);
 
-  const va = useMemo(() => '8800' + Array.from({ length: 12 }, () => Math.floor(Math.random() * 10)).join(''), []);
   const gateway = kipayActive();
 
   useEffect(() => {
     const q = new URLSearchParams(window.location.search);
-    const bank = q.get('m') || 'QRIS';
-    setParams({ bank: BANKS[bank] ? bank : 'QRIS', promo: q.get('promo') || '' });
+    setPromoCode(q.get('promo') || '');
   }, []);
 
   // Hitung mundur dari expires_at transaksi; fallback 15 menit untuk mode manual.
@@ -71,7 +62,7 @@ export default function BayarPage() {
     );
   }
 
-  const promo = params.promo ? S.promos.find((x) => x.code === params.promo && x.on) : null;
+  const promo = promoCode ? S.promos.find((x) => x.code === promoCode && x.on) : null;
   const base = pkg.promo || pkg.price;
   const final = promo ? Math.round(base * 0.9) : base;
   const mm = String(Math.floor(left / 60)).padStart(2, '0');
@@ -85,7 +76,7 @@ export default function BayarPage() {
       S2.newPk = Array.from(new Set([...(S2.newPk || []), pkg.id]));
       S2.logs.unshift({
         t: 'beli',
-        x: `${S2.me?.n || 'Siswa'} membeli ${pkg.name} via ${trx?.provider || params.bank}${promo ? ` (promo ${promo.code})` : ''}`,
+        x: `${S2.me?.n || 'Siswa'} membeli ${pkg.name} via QRIS${promo ? ` (promo ${promo.code})` : ''}`,
         d: new Date().toLocaleString('id-ID'),
       });
     });
@@ -98,14 +89,14 @@ export default function BayarPage() {
 
   // Buat transaksi QRIS di KiPay saat halaman dibuka (mode gateway).
   useEffect(() => {
-    if (!gateway || !pkg || params.bank !== 'QRIS' || trx) return;
+    if (!gateway || !pkg || trx) return;
     let dead = false;
     kipayCreate(final, `kedinasan:${pkg.id}:${S.me?.e || 'anon'}`)
       .then((t) => { if (!dead) setTrx(t); })
       .catch(() => { if (!dead) setErr('Gagal membuat transaksi. Coba muat ulang.'); });
     return () => { dead = true; };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [gateway, pkg?.id, params.bank]);
+  }, [gateway, pkg?.id]);
 
   const startPolling = () => {
     if (!trx || pollRef.current) return;
@@ -147,7 +138,7 @@ export default function BayarPage() {
     <>
       <div className="page-head">
         <Back href={`/beli/${pkg.id}`} />
-        <h1>{params.bank === 'QRIS' ? 'Pembayaran QRIS' : 'Virtual Account'}</h1>
+        <h1>Pembayaran QRIS</h1>
       </div>
 
       <div className="card center">
@@ -165,51 +156,35 @@ export default function BayarPage() {
           Batas waktu {mm}:{ss}
         </div>
 
-        {params.bank === 'QRIS' ? (
-          <div className="qr-area">
-            {qrisImg ? (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img src={qrisImg} alt="QRIS" style={{ maxWidth: '100%', maxHeight: '100%' }} />
-            ) : (
-              <span>
-                Area kode QR QRIS
-                <br />
-                {gateway ? 'Membuat transaksi…' : '(dipasang lewat Panel Admin)'}
-              </span>
-            )}
-          </div>
-        ) : (
-          <>
-            <div className="bank-logo">
-              {S.pay?.[params.bank] ? (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img src={S.pay[params.bank]} alt={BANKS[params.bank]} />
-              ) : (
-                BANKS[params.bank]
-              )}
-            </div>
-            <p className="muted tiny" style={{ marginTop: 12 }}>
-              Nomor Virtual Account
-            </p>
-            <div className="va-box">
-              <span>{va}</span>
-              <button
-                className="btn sm"
-                onClick={async () => {
-                  try {
-                    await navigator.clipboard.writeText(va);
-                    setCopied(true);
-                    setTimeout(() => setCopied(false), 1500);
-                  } catch {}
-                }}
-              >
-                {copied ? 'Tersalin' : 'Salin'}
-              </button>
-            </div>
-          </>
-        )}
+        <div className="qr-area">
+          {qrisImg ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img src={qrisImg} alt="QRIS" style={{ maxWidth: '100%', maxHeight: '100%' }} />
+          ) : (
+            <span>
+              Area kode QR QRIS
+              <br />
+              {gateway ? 'Membuat transaksi…' : '(dipasang lewat Panel Admin)'}
+            </span>
+          )}
+        </div>
+        {gateway && trx?.qr_payload ? (
+          <button
+            className="btn sm ghost"
+            style={{ marginTop: 10 }}
+            onClick={async () => {
+              try {
+                await navigator.clipboard.writeText(trx.qr_payload);
+                setCopied(true);
+                setTimeout(() => setCopied(false), 1500);
+              } catch {}
+            }}
+          >
+            {copied ? 'Payload QR tersalin' : 'Salin payload QR (untuk aplikasi e-wallet)'}
+          </button>
+        ) : null}
 
-        {gateway && trx && params.bank === 'QRIS' ? (
+        {gateway && trx ? (
           <>
             {kipayIsSandbox(trx) ? (
               <button className="btn block" style={{ marginTop: 20 }} onClick={simulate} disabled={paying || left <= 0}>
