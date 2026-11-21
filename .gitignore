@@ -15,3 +15,4 @@ tools/extract-report.txt
 tools/_t/
 tools/_shots/
 .opencode/
+.firecrawl/
