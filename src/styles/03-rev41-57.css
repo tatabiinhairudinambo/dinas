@@ -1,0 +1,364 @@
+/* Revisi 41-57: layar horizontal, ujian, kisi-kisi
+   Sumber: archive/original.html — jangan ubah urutan antar file. */
+
+/* ---- style @baris 904 ---- */
+@media (orientation:portrait) and (min-width:600px){
+  body #app #ls, body #app .cg, body #app #sl { max-width:calc(100% - 8px)!important; margin-right:8px!important; box-sizing:border-box!important; }
+}
+@media (orientation:landscape) and (min-width:600px){
+  body.lapw.hm #bdp #ls, body.lapw.hm #bdp .cg, body.lapw.hm #bdp #sl { max-width:calc(100% - 8px)!important; margin-right:8px!important; box-sizing:border-box!important; }
+}
+
+/* ---- style @baris 914 ---- */
+@media (orientation:portrait) and (min-width:600px){
+  /* Skala tipografi dan kontrol bersama-sama agar rasio visual mendekati tampilan standar. */
+  body #app #bdp{font-size:1.12em!important;}
+  body #app #bdp button{font-size:inherit;}
+  body #app #bdp #ls .row, body #app #bdp .cg .row, body #app #bdp #sl .row{transform-origin:top left;}
+  body #app #bdp #ls .row button, body #app #bdp .cg .row button, body #app #bdp #sl .row button{line-height:1.2;}
+}
+
+/* ---- style @baris 925 ---- */
+body.lapx .kisi{display:block!important;color:#e0b800!important;font-size:13px!important;font-weight:800!important;font-style:normal!important;line-height:1.55!important;text-align:center!important;white-space:normal!important;overflow:visible!important;-webkit-line-clamp:unset!important;-webkit-box-orient:initial!important;max-height:none!important;height:auto!important;margin:12px auto 0!important;padding:0 10px!important}body.lapx .kisi *{font-weight:800!important;color:#e0b800!important}
+
+/* ---- style @baris 950 ---- */
+@media (orientation:portrait) and (min-width:600px){
+  html,body{height:100%;overflow:hidden!important;max-width:100%;}
+  body #app{
+    position:fixed!important;inset:0.5cm!important;
+    width:auto!important;max-width:none!important;min-height:0!important;height:auto!important;
+    margin:0!important;transform:none!important;zoom:1.18;
+    transform-origin:top center;overflow:auto!important;box-sizing:border-box;
+    border:2px solid #c9d2e5;border-radius:30px;background:#fff;
+    padding-bottom:78px!important;overflow-x:hidden!important;
+  }
+  body #app *{max-width:100%;box-sizing:border-box;}
+  body #app .cg, body #app #ls, body #app #sl{width:auto!important;max-width:100%!important;margin-left:0!important;margin-right:0!important;}
+  body .nav{
+    position:fixed!important;left:0.5cm!important;right:0.5cm!important;
+    top:auto!important;bottom:1cm!important;width:auto!important;max-width:none!important;
+    height:66px!important;transform:none!important;box-sizing:border-box;max-width:none!important;
+    border-radius:0 0 28px 28px;background:#fff;z-index:100!important;
+  }
+}
+
+/* ---- style @baris 997 ---- */
+@media (orientation:portrait) and (min-width:600px){
+  body #app{inset:0!important;border:0!important;border-radius:0!important;}
+  body .nav{left:0!important;right:0!important;bottom:0!important;border-radius:0!important;}
+}
+
+/* ---- style @baris 1005 ---- */
+@media (orientation:landscape) and (min-width:600px){
+  body.lapw.hm #bdp > button.big{
+    height:58px!important;
+    min-height:58px!important;
+    font-size:18px!important;
+    line-height:1.2!important;
+    padding:0 14px!important;
+    box-sizing:border-box!important;
+  }
+  body.lapw.hm #bdp > .g3{
+    gap:10px!important;
+    margin-top:12px!important;
+    margin-bottom:24px!important;
+  }
+  body.lapw.hm #bdp > .g3 button{
+    height:50px!important;
+    min-height:50px!important;
+    font-size:16px!important;
+    line-height:1.15!important;
+    padding:0 8px!important;
+    box-sizing:border-box!important;
+  }
+}
+
+/* ---- style @baris 1057 ---- */
+/* Kisi-kisi aktif: tepat tiga baris manual, tanpa pemotongan, tanpa efek gold */
+body.lapx .kisi{
+  display:block!important;
+  width:100%!important;
+  max-width:100%!important;
+  margin:12px auto 0!important;
+  padding:0 8px!important;
+  color:#ffff00!important;
+  font-size:clamp(8px,1.05vw,12px)!important;
+  font-weight:400!important;
+  font-style:italic!important;
+  line-height:1.42!important;
+  letter-spacing:0!important;
+  text-align:center!important;
+  white-space:pre!important;
+  overflow:visible!important;
+  text-overflow:clip!important;
+  text-shadow:none!important;
+  filter:none!important;
+  height:auto!important;
+  min-height:0!important;
+  max-height:none!important;
+  -webkit-line-clamp:unset!important;
+  -webkit-box-orient:initial!important;
+}
+body.lapx .kisi *{
+  color:#ffff00!important;
+  font-weight:400!important;
+  font-style:italic!important;
+  text-shadow:none!important;
+  filter:none!important;
+}
+
+/* Area horizontal tidak boleh melebar ke samping */
+@media (orientation:landscape) and (min-width:600px){
+  html,body{max-width:100vw!important;overflow-x:hidden!important}
+  body.lapx #app,body.rvx #app{
+    width:100vw!important;max-width:100vw!important;
+    overflow-x:hidden!important;min-width:0!important;
+  }
+  body.lapx .exw,body.lapx .exw>*,
+  body.rvx .exw,body.rvx #lz{min-width:0!important;max-width:100%!important}
+  body.lapx img,body.rvx img{max-width:100%!important;height:auto}
+
+  /* Halaman kerja soal: tombol tetap mengambang di kiri bawah area soal,
+     satu baris: sebelumnya, simpan jawaban, lewati. */
+  body.lapx .fx{
+    position:fixed!important;
+    left:360px!important;right:auto!important;
+    bottom:12px!important;top:auto!important;
+    transform:none!important;
+    display:flex!important;flex-direction:row!important;
+    align-items:center!important;justify-content:flex-start!important;
+    flex-wrap:nowrap!important;gap:8px!important;
+    width:auto!important;max-width:calc(100vw - 380px)!important;
+    padding:0!important;margin:0!important;
+    border:0!important;background:transparent!important;
+    z-index:35!important;pointer-events:none!important;
+  }
+  body.lapx .fx>div{display:contents!important}
+  body.lapx .fx button{
+    position:static!important;
+    display:inline-flex!important;align-items:center!important;justify-content:center!important;
+    flex:0 0 auto!important;width:auto!important;min-width:0!important;
+    height:42px!important;min-height:42px!important;
+    padding:0 12px!important;margin:0!important;
+    white-space:nowrap!important;font-size:12px!important;
+    box-shadow:none!important;pointer-events:auto!important;
+  }
+  body.lapx .fx>button{order:1!important}
+  body.lapx .fx>div button:nth-of-type(1){order:2!important}
+  body.lapx .fx>div button:nth-of-type(2){order:3!important}
+
+  /* Halaman koreksi: soal memenuhi seluruh kolom kanan; tombol bawah
+     mengambang tanpa panel/latar tambahan dan ukurannya mengikuti teks. */
+  body.lapw.rvx #app{
+    width:100vw!important;max-width:100vw!important;
+    grid-template-columns:340px minmax(0,1fr)!important;
+    grid-template-rows:auto minmax(0,1fr)!important;
+    overflow-x:hidden!important;
+  }
+  body.lapw.rvx #lz{
+    grid-column:2!important;grid-row:2!important;
+    width:100%!important;max-width:100%!important;min-width:0!important;
+    padding:18px 24px 76px!important;
+    overflow-x:hidden!important;
+  }
+  body.lapw.rvx .fx{
+    position:fixed!important;
+    left:360px!important;right:auto!important;
+    bottom:12px!important;top:auto!important;
+    transform:none!important;
+    display:flex!important;flex-direction:row!important;
+    align-items:center!important;justify-content:flex-start!important;
+    flex-wrap:nowrap!important;gap:8px!important;
+    width:auto!important;max-width:calc(100vw - 380px)!important;
+    padding:0!important;margin:0!important;
+    border:0!important;background:transparent!important;
+    z-index:35!important;pointer-events:none!important;
+  }
+  body.lapw.rvx .fx>div{display:contents!important}
+  body.lapw.rvx .fx button{
+    display:inline-flex!important;align-items:center!important;justify-content:center!important;
+    flex:0 0 auto!important;width:auto!important;min-width:0!important;
+    height:42px!important;min-height:42px!important;
+    padding:0 14px!important;margin:0!important;
+    white-space:nowrap!important;font-size:12px!important;
+    box-shadow:none!important;pointer-events:auto!important;
+  }
+  body.lapw.rvx .sidep{min-width:0!important;max-width:340px!important}
+}
+
+/* ---- style @baris 1238 ---- */
+@media (orientation:landscape) and (min-width:600px){
+  body.lapw.lapx #app,
+  body.lapw.rvx #app{
+    width:auto!important;
+    max-width:none!important;
+    left:var(--fx)!important;
+    right:var(--fx)!important;
+    box-sizing:border-box!important;
+  }
+  body.lapw.lapx #lz,
+  body.lapw.rvx #lz{
+    box-sizing:border-box!important;
+  }
+}
+
+/* ---- style @baris 1256 ---- */
+/* (1) Popup pilih pembayaran / mode ujian: #m statis sehingga z-index tidak berlaku dan sheet tertutup panel #ovl */
+body.lapw #m{position:relative!important;z-index:80!important}
+/* (2) Kotak nomor VA / QR di panel pembayaran LH ikut aturan thumbnail (3:2) sehingga membesar. Kembalikan ke ukuran HP. */
+#ovp #va-slot{aspect-ratio:auto!important;height:50px!important}
+#ovp #qr-slot{aspect-ratio:auto!important;height:250px!important}
+/* (3) Halaman koreksi LH: tampilkan ringkasan koreksi (TWK/TIU/TKP poin 5-1, garis putus-putus, belum terjawab) di atas navigasi nomor */
+body.lapw.rvx .sidep>div:nth-child(2){display:block!important;margin-bottom:14px!important}
+/* (4) Tombol & panel urutkan paket LH */
+.srtb{display:flex;align-items:center;gap:10px;width:100%;height:46px;padding:0 16px;margin:4px 0 8px;border:1.5px solid #012AAB;border-radius:12px;background:#fff;color:#012AAB;font-weight:700;font-size:14px;box-shadow:0 2px 0 #012AAB22;text-align:left}
+.srtb span{flex:1}
+.srtb svg{flex:none}
+.srto{display:flex;align-items:center;gap:12px;width:100%;padding:12px 14px;margin-bottom:10px;border:1.5px solid var(--bd);border-radius:12px;background:var(--bg);color:var(--tx);text-align:left;box-shadow:0 1px 3px #0001}
+.srto b{display:block;font-size:14px}
+.srto small{display:block;font-size:11.5px;color:var(--mu);margin-top:2px;font-weight:500}
+.srto i{flex:none;width:22px;height:22px;border-radius:50%;border:2px solid #9aa5c0;display:grid;place-items:center}
+.srto.on{border-color:#012AAB;background:#eef3ff}
+.srto.on b{color:#012AAB}
+.srto.on i{border-color:#012AAB;background:#012AAB}
+.srto.on i::after{content:"";width:8px;height:8px;border-radius:50%;background:#ffc619}
+
+/* ---- style @baris 1320 ---- */
+/* (1) Tombol bawah soal aktif & koreksi: tetap (fixed) dan berada di dalam border bingkai */
+body.lapx .fx,
+body.lapw.rvx .fx{
+  bottom:calc(var(--fy,1.5cm) + 14px)!important;
+  max-width:calc(100vw - 360px - var(--fx,1cm) - 24px)!important;
+}
+/* (2) Ringkasan koreksi: baris garis putus-putus ikut line-height tabel global (52px) sehingga jaraknya raksasa */
+/* garis putus-putus ikut aturan thumbnail (rasio 3:2) sehingga tingginya ~170px; kembalikan jadi garis tipis */
+table div[style*="dashed"]{aspect-ratio:auto!important;height:0!important;min-height:0!important}
+
+/* ---- style @baris 1358 ---- */
+.fx.fxe{background:var(--bg)!important;border-top:1px solid var(--bd);pointer-events:auto!important}
+.fx.fxe button{box-shadow:none!important}
+
+/* ---- style @baris 1403 ---- */
+@media (orientation:portrait){
+  /* layar potret 481-599px (HP besar/foldable): app ikut selebar layar, tidak terkunci 480px */
+  body:not(.lapw) #app{max-width:none!important}
+  body:not(.lapw) .nav,body:not(.lapw) .fx,body:not(.lapw) .fxo{max-width:none!important}
+  /* balok biru: lepas batas max-width:100% bawaan dan tarik sampai tepi layar */
+  body:not(.lapw) #app div[style*="margin:-14px -1"]{
+    max-width:none!important;width:auto!important;box-sizing:border-box!important;
+    margin-left:-14px!important;margin-right:-14px!important;
+  }
+  /* balok biru di dalam pembungkus ujian/koreksi (.exw punya padding 2px) */
+  body:not(.lapw) #app .exw>div[style*="margin:-14px -1"]{
+    margin-left:-16px!important;margin-right:-16px!important;
+  }
+}
+
+/* ---- style @baris 1421 ---- */
+/* Kolom pembayaran: ukuran sama dengan layar horizontal (VA tinggi 50px, QR 250x250) */
+#va-slot{aspect-ratio:auto!important;height:50px!important}
+#qr-slot{aspect-ratio:auto!important;width:250px!important;height:250px!important}
+
+/* Skala potret: tampilan standar selebar 480px, di layar lebih lebar hanya "ditarik" skalanya */
+@media (orientation:portrait) and (min-width:481px){
+  html,body{height:100%;overflow:hidden!important}
+  body #app{position:fixed!important;inset:0!important;width:auto!important;max-width:none!important;min-height:0!important;height:auto!important;margin:0!important;transform:none!important;zoom:1!important;overflow:auto!important;overflow-x:hidden!important;box-sizing:border-box;border:0!important;border-radius:0!important;background:var(--bg);padding-left:14px!important;padding-right:14px!important;padding-bottom:78px!important}
+  body .nav{position:fixed!important;left:0!important;right:0!important;bottom:0!important;top:auto!important;width:auto!important;max-width:none!important;transform:none!important;border-radius:0!important;z-index:100!important}
+}
+
+/* Halaman ujian & koreksi potret */
+@media (orientation:portrait){
+  .exw .dn{display:inline-flex!important;align-items:center;gap:8px}
+  .exw .tmr{position:fixed;left:0;right:0;bottom:68px;height:40px;display:flex;align-items:center;justify-content:center;gap:8px;background:var(--bg);border-top:1px solid var(--bd);z-index:10;color:var(--ac)}
+  .exw .tmr .tl{font-size:12px;font-weight:600;color:var(--mu)}
+  .exw .tmr b{font-size:18px;font-weight:800;letter-spacing:1px;color:var(--ac)}
+}
+
+/* ---- style @baris 1493 ---- */
+/* Kisi-kisi kosong: papan soal menyesuaikan, tidak menyisakan ruang kosong */
+.kisi:empty{display:none!important}
+/* LH: tombol bawah (soal aktif & koreksi) sejajar sisi kiri opsi A-E */
+body.lapx .fx{left:400px!important;max-width:calc(100vw - 400px - var(--fx,1cm) - 24px)!important}
+body.lapw.rvx .fx{left:404px!important;max-width:calc(100vw - 404px - var(--fx,1cm) - 24px)!important}
+/* Tombol urutkan: potret = tombol lebar, LH = ikon ungu di kanan atas */
+.srti{flex:none;width:40px;height:40px;border-radius:12px;background:#7c3aed;color:#fff;display:grid;place-items:center;padding:0;position:relative}
+.srti i{position:absolute;top:-3px;right:-3px;width:11px;height:11px;border-radius:50%;background:#ffc619;border:2px solid var(--bg)}
+
+/* ---- style @baris 1652 ---- */
+/* Potret: satu-satunya skala adalah --zz (lebar layar / 360). Skala lain dari revisi lama (zoom html/#app) diabaikan. */
+@media (orientation:portrait){html{zoom:var(--zz,1)!important}html body #app{zoom:1!important}}
+
+/* ---- style @baris 1696 ---- */
+/* Potret: satu-satunya skala adalah --zz (lebar layar / 360). Skala lain dari revisi lama (zoom html/#app) diabaikan. */
+@media (orientation:portrait){html{zoom:var(--zz,1)!important}html body #app{zoom:1!important}}
+
+/* ---- style @baris 1740 ---- */
+/* Judul paket: tulisan abu-abu kecil di sudut kanan bawah, hanya layar horizontal */
+.catx{display:none}
+body.lapw .catx{display:block;position:fixed;right:calc(var(--fx,1cm) + 28px);bottom:calc(var(--fy,1.5cm) + 29px);z-index:9;max-width:34%;text-align:right;font-size:11px;font-weight:500;line-height:1.3;color:#8a93a6;background:var(--bg);padding:2px 6px;border-radius:6px;pointer-events:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+/* Mode fokus (tombol on): tombol on/off + zoom pindah ke bawah, sebaris dengan tombol soal sebelumnya/simpan/lewati */
+body.lapx.fok .tgl{top:auto!important;bottom:calc(var(--fy,1.5cm) + 22px)!important;right:calc(var(--fx,1cm) + 24px)!important}
+body.lapx.fok .fzm{top:auto!important;bottom:calc(var(--fy,1.5cm) + 21px)!important;right:calc(var(--fx,1cm) + 94px)!important}
+body.lapx.fok .catx{bottom:calc(var(--fy,1.5cm) + 66px)}
+
+/* ---- style @baris 1808 ---- */
+#tpill{display:none!important}
+.hot54{position:absolute;top:50%;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;background:#ff2b2b;box-shadow:0 0 0 2px rgba(255,43,43,.28),0 0 9px 3px rgba(255,43,43,.75);animation:hot54 1.4s ease-in-out infinite}
+@keyframes hot54{0%,100%{box-shadow:0 0 0 2px rgba(255,43,43,.28),0 0 7px 2px rgba(255,43,43,.6)}50%{box-shadow:0 0 0 4px rgba(255,43,43,.18),0 0 13px 5px rgba(255,43,43,.9)}}
+.ic54{display:grid;place-items:center;width:44px;height:44px;border-radius:12px;background:#e6edff;color:#012AAB;flex:none}
+.ic54.sm{width:30px;height:30px;border-radius:9px}
+.tile54{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:6px;padding:14px 6px;height:auto;border-radius:14px;border:1.5px solid var(--bd);background:var(--bg);color:var(--tx,#111);font-weight:400}
+.tile54 b{font-size:14px;font-weight:800;color:#012AAB}
+.tile54 small{font-size:10.5px;color:var(--mu);line-height:1.25;text-align:center;font-weight:500}
+.tile54.feat{width:100%;flex-direction:row;align-items:center;gap:14px;padding:16px;background:linear-gradient(90deg,#012AAB,#346ef3);border:0;text-align:left}
+.tile54.feat b{color:#fff;font-size:16px}
+.tile54.feat small{color:#dbe6ff;font-size:12px;text-align:left}
+.tile54.feat .tx{display:flex;flex-direction:column;gap:2px;align-items:flex-start}
+.tile54.feat .ic54{background:rgba(255,255,255,.18);color:#fff}
+.g4t{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:0 0 40px}
+.tile54{padding:12px 4px!important;gap:8px!important;border:1px solid var(--bd)!important;border-radius:12px!important}
+.tile54 .ic54{background:linear-gradient(135deg,#4f8dff 0%,#0a3fd4 100%)!important;color:#fff!important;border-radius:10px!important}
+.tile54 .ic54{width:40px;height:40px}
+.tile54 b{font-size:13px!important}
+input[placeholder*="Cari"]{background:var(--bg) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%238a93a6' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='M20 20l-3.5-3.5'/%3E%3C/svg%3E") no-repeat 11px center;padding-left:34px!important}
+.nav>div.nv54{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px}
+.nav>div.nv54 svg{flex:none}
+
+/* ---- style @baris 1891 ---- */
+#cwp{position:fixed;left:0;right:0;top:0;bottom:0;z-index:-1;background-position:center;background-size:cover;background-repeat:no-repeat;pointer-events:none}
+#cwp::after{content:"";position:absolute;left:0;right:0;top:0;bottom:0;background:linear-gradient(rgba(255,255,255,.34),rgba(255,255,255,.62))}
+html[data-theme=dark] #cwp::after{background:linear-gradient(rgba(8,12,24,.64),rgba(8,12,24,.84))}
+@media(prefers-color-scheme:dark){html:not([data-theme=light]) #cwp::after{background:linear-gradient(rgba(8,12,24,.64),rgba(8,12,24,.84))}}
+body.wp54 #app{background:transparent!important;box-shadow:none!important}
+html[data-theme=dark] .tile54 b{color:#cfe0ff!important}
+@media(prefers-color-scheme:dark){html:not([data-theme=light]) .tile54 b{color:#cfe0ff!important}}
+
+/* ---- style @baris 1947 ---- */
+/* Lapisan wallpaper: scrim bernuansa gelap (bukan putih buram) */
+#cwp::after{background:linear-gradient(rgba(6,10,22,.30),rgba(6,10,22,.50))}
+html[data-theme=dark] #cwp::after{background:linear-gradient(rgba(5,8,18,.64),rgba(5,8,18,.84))}
+@media(prefers-color-scheme:dark){html:not([data-theme=light]) #cwp::after{background:linear-gradient(rgba(5,8,18,.64),rgba(5,8,18,.84))}}
+/* Beranda: lapisan penuh jadi ambient (kabur), wallpaper tajam hanya di dalam arena */
+body.home58 #cwp{filter:blur(28px) saturate(1.3);transform:scale(1.15)}
+
+/* Arena: satu kotak besar sudut tumpul dari "Pilih Try Out" sampai "Lihat Lainnya" */
+#arena58{position:relative;isolation:isolate;border:1.5px solid var(--bd);border-radius:20px;padding:0 14px 16px;margin-top:22px;clip-path:inset(0 round 20px)}
+#arena58>.tiles54>div:first-child{margin-top:18px!important}
+.wpin58{position:fixed;left:0;right:0;top:0;bottom:0;z-index:-1;background-position:center;background-size:cover;background-repeat:no-repeat;pointer-events:none}
+.wpin58::after{content:"";position:absolute;inset:0;background:linear-gradient(rgba(6,10,22,.30),rgba(6,10,22,.50))}
+html[data-theme=dark] .wpin58::after{background:linear-gradient(rgba(5,8,18,.64),rgba(5,8,18,.84))}
+@media(prefers-color-scheme:dark){html:not([data-theme=light]) .wpin58::after{background:linear-gradient(rgba(5,8,18,.64),rgba(5,8,18,.84))}}
+body.wp54 #arena58{border-color:rgba(255,255,255,.38)}
+
+/* Teks di atas wallpaper (di luar panel kaca) jadi putih */
+body.wp54 #app{--tx:#fff;--mu:#dbe2f3;color:#fff;text-shadow:0 1px 8px rgba(0,0,0,.45)}
+body.wp54 input::placeholder{color:inherit;opacity:.7}
+
+/* Kaca: panel putih -> kaca putih berkilau; mode gelap -> kaca hitam; tombol berwarna -> kaca bernuansa warna itu */
+.gl58w,.gl58k,.gl58c{-webkit-backdrop-filter:blur(14px) saturate(1.4);backdrop-filter:blur(14px) saturate(1.4);text-shadow:none}
+.gl58w{background-color:rgba(255,255,255,.52)!important;border-color:rgba(255,255,255,.6)!important;--tx:#111;--mu:#4b5568;color:#111;box-shadow:inset 0 1px 0 rgba(255,255,255,.7),0 4px 16px rgba(0,0,0,.14)!important}
+.gl58k{background-color:rgba(8,12,24,.56)!important;border-color:rgba(255,255,255,.16)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.12),0 4px 16px rgba(0,0,0,.35)!important}
+.gl58c{background-color:rgba(var(--gc),.64)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.35),0 4px 14px rgba(0,0,0,.18)!important}
+.wh58,.wh58 *{color:#fff!important}
+button.wh58{border-color:rgba(255,255,255,.75)!important}
+body.wp54 .nav.gl58w,body.wp54 .nav.gl58k{box-shadow:none!important}

@@ -1,0 +1,5 @@
+/* Revisi 58: garis mode gelap (dibangun dari array di script)
+   Sumber: archive/original.html — jangan ubah urutan antar file. */
+
+/* ---- inject @baris 1977 ---- */
+html[data-theme=dark] .ln58{background:transparent!important;border-width:2px!important;color:var(--tx)!important}@media(prefers-color-scheme:dark){html:not([data-theme=light]) .ln58{background:transparent!important;border-width:2px!important;color:var(--tx)!important}}

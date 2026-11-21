@@ -1,0 +1,20 @@
+/* Revisi 58-62: arena, ambient, kaca
+   Sumber: archive/original.html — jangan ubah urutan antar file. */
+
+/* ---- style @baris 2082 ---- */
+/* Di luar kotak: blur buram (putih di tema terang, gelap di tema gelap), bukan ambient */
+body.home58 #cwp{filter:blur(12px);transform:scale(1.06)}
+body.home58 #cwp::after{background:rgba(255,255,255,.56)}
+body.home58.dk58 #cwp::after{background:rgba(8,12,24,.52)}
+body.home58:not(.dk58) #app{--tx:#111;--mu:#4b5568;color:#111;text-shadow:none}
+body.wp54 #arena58{--tx:#fff;--mu:#dbe2f3;color:#fff;text-shadow:0 1px 8px rgba(0,0,0,.45)}
+/* Tema gelap: wallpaper lebih terlihat agar efek kaca terasa */
+html[data-theme=dark] #cwp::after,html[data-theme=dark] .wpin58::after{background:linear-gradient(rgba(5,8,18,.38),rgba(5,8,18,.56))}
+@media(prefers-color-scheme:dark){html:not([data-theme=light]) #cwp::after,html:not([data-theme=light]) .wpin58::after{background:linear-gradient(rgba(5,8,18,.38),rgba(5,8,18,.56))}}
+
+/* Lihat Lainnya: tulisan saja */
+@media (orientation:portrait){
+  #lm button{background:none!important;border:0!important;box-shadow:none!important;height:auto!important;padding:12px 0 2px!important;color:var(--ac)!important;font-weight:700}
+  #lm button svg{display:none!important}
+}
+body.wp54 #lm button{color:#fff!important;text-shadow:0 1px 8px rgba(0,0,0,.5)}

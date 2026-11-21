@@ -1,0 +1,17 @@
+node_modules/
+.next/
+dist/
+.vercel/
+.dev.vars
+.npm-cache/
+.env
+.env.*
+!.env.example
+*.local
+*.log
+.DS_Store
+Thumbs.db
+tools/extract-report.txt
+tools/_t/
+tools/_shots/
+.opencode/

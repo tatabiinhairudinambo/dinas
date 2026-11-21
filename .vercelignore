@@ -1,0 +1,10 @@
+# Hanya yang dibutuhkan build yang diunggah oleh Vercel CLI.
+archive/
+docs/
+tools/_shots/
+tools/_t/
+tools/extract-report.txt
+.env
+.env.*
+.dev.vars
+.npm-cache/
