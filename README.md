@@ -15,8 +15,12 @@ komponen React dengan CSS terpusat di `src/styles/app.css`.
 - **Ujian**: timer per sesi, navigasi Daftar Nomor, penilaian di browser,
   hasil tersimpan (`res`) + riwayat (`hist`). Ujian < 60 detik tidak bisa
   diakhiri (modal "Masih terlalu awal").
-- **Pembelian**: halaman `/beli/[id]` → `/bayar/[id]` (QRIS/BCA/BRI/Mandiri,
-  simulasi transfer berhasil), kode promo, paket terbeli muncul di `/paket`.
+- **Pembelian**: halaman `/beli/[id]` → `/bayar/[id]`. QRIS memakai gateway
+  **KiPay** (`src/lib/kipay.js`): transaksi dibuat via API, QR diambil dari
+  `qr_url`, status di-polling tiap 3 detik; transaksi sandbox (trx_id `SBX-`)
+  mendapat tombol **Simulasikan Bayar**. Tanpa `NEXT_PUBLIC_KIPAY_API_KEY`,
+  halaman jatuh ke mode simulasi manual seperti sebelumnya. Paket terbeli
+  muncul di `/paket`.
 - **Panel operator `/admin`**: ringkasan, kelola paket + bank soal (editor
   soal, bulk paste `///`/`|||`, publish dengan validasi), pemasaran
   (banner/logo/promo/metode bayar), dan akun. Akun demo bawaan:
@@ -29,6 +33,24 @@ Saat ini **localStorage murni** dengan kunci `kedinasan_v2` (kompatibel dengan
 data versi lama — shape state tidak berubah). Sinkronisasi Supabase sengaja
 belum diwire dan menjadi fase berikutnya; skema SQL-nya sudah disiapkan di
 `docs/SUPABASE.sql` dan rencananya diringkas di `docs/SUPABASE.md`.
+
+## Pembayaran (KiPay)
+
+QRIS di `/bayar/[id]` memakai [KiPay](https://kipay.biz.id/docs):
+
+1. Set `NEXT_PUBLIC_KIPAY_API_KEY` (`.env.local`, atau env Vercel) dengan API
+   key project dari dashboard KiPay.
+2. Saat halaman dibuka, aplikasi membuat transaksi
+   `POST /api/pay/{apiKey}/transactions` dan menampilkan `qr_url`.
+3. Production: tombol **Cek Status** mem-polling
+   `GET /transactions/{trxId}` tiap 3 detik sampai `paid`.
+   Sandbox: tombol **Simulasikan Bayar** memanggil endpoint `/simulate`.
+4. Fulfillment (paket masuk `owned`) terjadi setelah status `paid` terbaca
+   dari API — bukan dari tombol lokal.
+
+Catatan: API key KiPay tampil di URL QR sesuai desain API-nya (key di path);
+ini memang kunci publik project, bukan secret server. Tanpa key, halaman
+kembali ke mode simulasi manual (QR dari Panel Admin + tombol simulasi).
 
 ## Struktur
 
@@ -56,6 +78,7 @@ src/
     store.js              useStore/update (window.__kedinasanStore, dipakai e2e)
     auth.js               login/register/verifyEmail/resetPassword/logout/
                           updateMe/setPhoto/checkPassword/hashPassword (PBKDF2)
+    kipay.js              Client gateway KiPay (buat transaksi, status, simulasi)
     image.js              compressImage() untuk unggahan (thumbnail/banner/soal)
   styles/app.css          Satu-satunya stylesheet (menggantikan 7 file revisi lama)
 public/

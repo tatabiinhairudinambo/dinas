@@ -5,9 +5,15 @@ Lihat `README.md` untuk gambaran umum arsitektur.
 
 ## 1. Env
 
-**Tidak ada env yang dibutuhkan saat ini.** Aplikasi berjalan penuh di
-browser (localStorage `kedinasan_v2`). Kalau nanti fase Supabase diwire,
-env akan didokumentasikan di sini dan di `docs/SUPABASE.md`.
+| Variabel | Wajib | Fungsi |
+| --- | --- | --- |
+| `NEXT_PUBLIC_KIPAY_API_KEY` | Tidak | API key project [KiPay](https://kipay.biz.id/docs). Tanpa ini, halaman bayar pakai mode simulasi manual. |
+
+Isi di `.env.local` untuk dev, dan di **Project → Settings → Environment
+Variables** (Vercel) untuk production. Redeploy setelah mengubah env.
+
+Aplikasi berjalan penuh di browser (localStorage `kedinasan_v2`); sinkronisasi
+Supabase menyusul (lihat `docs/SUPABASE.md`).
 
 ## 2. Deploy
 
@@ -36,7 +42,7 @@ dan berhenti kalau build bermasalah.
 dicatat di console, tidak mengganggu pengguna. Kebijakan saat ini:
 
 - `img-src 'self' data:` — gambar profil/thumbnail/soal berupa data URL.
-- `connect-src 'self'` — belum ada API eksternal.
+- `connect-src 'self' https://api.kipay.biz.id` — gateway pembayaran KiPay.
 - `frame-ancestors 'none'`, `object-src 'none'`, `base-uri 'none'`,
   `form-action 'none'`.
 
@@ -52,6 +58,8 @@ Saat Supabase diwire nanti, tambahkan `https://*.supabase.co` ke
    - `/` tampil dan scroll mulus.
    - `/masuk` → daftar akun baru → verifikasi → masuk.
    - `/admin` → login demo `1@gmail.com` / `123456` → tab Paket & Soal.
+   - `/bayar/[id]` QRIS: dengan KiPay key aktif, QR dari `qr_url` muncul dan
+     tombol Cek/Simulasikan berjalan; tanpa key, mode simulasi manual.
    - `/pay/qris.svg` balas 200.
    - Refresh langsung di `/paket` atau `/profil` tidak 404.
 4. Data pengguna ada di localStorage peramban — **tidak ada backup server**.
