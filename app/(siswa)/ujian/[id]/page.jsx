@@ -179,13 +179,13 @@ export default function UjianPage() {
 
       <div className="exam-actions">
         <button className="btn ghost" onClick={prev} disabled={i === 0}>
-          ← Sebelumnya
+          <span className="arr">← </span>Sebelumnya
         </button>
         <button className="btn ghost" onClick={skip}>
           Lewati
         </button>
         <button className="btn" onClick={i === pkg.qs.length - 1 ? () => setConfirm(true) : next}>
-          {i === pkg.qs.length - 1 ? 'Selesai' : 'Berikutnya →'}
+          {i === pkg.qs.length - 1 ? 'Selesai' : <span><span className="arr">Berikutnya </span>→</span>}
         </button>
       </div>
 
