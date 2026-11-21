@@ -1,9 +1,9 @@
 # Web Kedinasan
 
 Aplikasi try out kedinasan (SKD — TWK/TIU/TKP) yang dibangun ulang sebagai
-**Next.js murni** (App Router) dan siap dideploy ke **Vercel**. Tidak ada lagi
-mesin legacy: semua layar, panel admin, dan gaya ditulis sebagai komponen
-React dengan CSS terpusat di `src/styles/app.css`.
+**Next.js murni** (App Router) dan siap dideploy ke **Vercel**. Tidak ada
+kode lama tersisa: semua layar, panel admin, dan gaya ditulis sebagai
+komponen React dengan CSS terpusat di `src/styles/app.css`.
 
 ## Fitur
 
@@ -38,7 +38,7 @@ jsconfig.json             alias @/* → root (wajib untuk import lintas route gr
 vercel.json               header keamanan (nosniff, CSP report-only, dst.)
 app/
   layout.jsx              Kerangka HTML + metadata + CSS global (server component)
-  page.jsx                Beranda (route group siswa)
+  (siswa)/page.jsx        Beranda (route group siswa)
   (siswa)/                Rute wajib login: paket, semua, kategori, ujian/[id],
                           hasil/[id], bayar/[id], beli/[id], profil, notifikasi
   (auth)/                 Rute tamu: masuk, daftar, verifikasi, lupa
